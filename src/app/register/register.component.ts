@@ -5,7 +5,7 @@ import { FlashService } from '../services/flash.service';
 import { UserService } from '../services/user.service';
 
 @Component({
-  selector: 'app-register',
+  selector: 'register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
