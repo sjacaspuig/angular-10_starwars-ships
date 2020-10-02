@@ -3,7 +3,7 @@ import { ShipsService } from '../services/ships.service';
 import { tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-ships',
+  selector: 'ships',
   templateUrl: './ships.component.html',
   styleUrls: ['./ships.component.scss']
 })
