@@ -39,13 +39,10 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(dataForm.username.value, dataForm.password.value, (response) => {
       if (response.success) {
         this.authenticationService.setCredentials(dataForm.username.value, dataForm.password.value);
-        this.flashService.clearFlashMessage();
-        console.log('success');
-        // this.router.navigateByUrl('/ships');
+        this.router.navigateByUrl('/ships');
       } else {
         this.flashService.error(response.message);
         this.dataLoading = false;
-        console.log('error');
       }
     });
   };
