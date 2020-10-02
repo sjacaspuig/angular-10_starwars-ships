@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
     private flashService: FlashService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     // reset login status
