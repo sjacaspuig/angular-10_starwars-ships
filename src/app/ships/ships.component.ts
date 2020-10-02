@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShipsService } from '../services/ships.service';
-import { tap } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'ships',
@@ -10,25 +10,25 @@ import { tap } from 'rxjs/operators';
 export class ShipsComponent implements OnInit {
 
   error = undefined;
-  lastResponse = {};
-  starships = [];
+  lastResponse: {} = {};
+  starships: {}[] = [];
 
   constructor(private shipsService: ShipsService) { }
 
   ngOnInit(): void {
+    this.fetchNext();
   }
 
   fetchNext()  {
-    var url = this.lastResponse ? this.lastResponse['next'] : null;
+    const url = this.lastResponse ? this.lastResponse['next'] : null;
 
-    this.shipsService.GetStarships(url)
-    .subscribe(data => {
-      if(data['error']) { // Mira condicional mes endevant
-        this.error = true;
-      } else {
+    this.shipsService.getStarships(url)
+    .subscribe(
+      data => {
         this.starships = this.starships.concat(data.results);
         this.lastResponse = data;
-      }
-    }); 
+      },
+      error => this.error = true,
+    );
   }
 }
