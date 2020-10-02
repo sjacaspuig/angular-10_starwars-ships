@@ -13,6 +13,7 @@ import { FlashComponent } from './flash/flash.component';
 import { ShipsComponent } from './ships/ships.component';
 import { StarshipsListComponent } from './starships-list/starships-list.component';
 import { StarshipComponent } from './starship/starship.component';
+import { StarshipDetailsComponent } from './starship-details/starship-details.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { StarshipComponent } from './starship/starship.component';
     FlashComponent,
     ShipsComponent,
     StarshipsListComponent,
-    StarshipComponent
+    StarshipComponent,
+    StarshipDetailsComponent
   ],
   imports: [
     BrowserModule,
