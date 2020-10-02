@@ -1,6 +1,6 @@
 <div class="ships">
     <div class="row">
-        <starship *ngFor="let starship in starships" [starship]="starship" class="col-xs-6 col-sm-6 col-md-3"></starship>
+        <starship *ngFor="let starship of starships" [starship]="starship" class="col-xs-6 col-sm-6 col-md-3"></starship>
     </div>
 </div>
 <button (click)="fetchNextPage()" class="btn btn-primary">Más datos</button>
