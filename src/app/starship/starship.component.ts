@@ -13,13 +13,13 @@ export class StarshipComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.getStarshipId();
+    const shipId = this.getStarshipId();
+    this.starshipUrl = 'https://starwars-visualguide.com/assets/img/starships/' + shipId + '.jpg';
   }
 
-  private getStarshipId(): void {
+  private getStarshipId(): string {
     const url = this.starship['url'];
-    const shipId = url.split("/").filter(item => item !== "").slice(-1)[0];
-    this.starshipUrl = 'https://starwars-visualguide.com/assets/img/starships/' + shipId + '.jpg';
+    return url.split("/").filter(item => item !== "").slice(-1)[0];
   }
 
 }
