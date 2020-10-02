@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FlashComponent } from './flash/flash.component';
 import { ShipsComponent } from './ships/ships.component';
+import { StarshipsListComponent } from './starships-list/starships-list.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ShipsComponent } from './ships/ships.component';
     LoginComponent,
     RegisterComponent,
     FlashComponent,
-    ShipsComponent
+    ShipsComponent,
+    StarshipsListComponent
   ],
   imports: [
     BrowserModule,
