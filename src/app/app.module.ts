@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FlashComponent } from './flash/flash.component';
+import { ShipsComponent } from './ships/ships.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FlashComponent } from './flash/flash.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    FlashComponent
+    FlashComponent,
+    ShipsComponent
   ],
   imports: [
     BrowserModule,
