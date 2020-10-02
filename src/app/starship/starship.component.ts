@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StarshipComponent implements OnInit {
 
-  @Input() starship: {} = {}
-  starshipUrl = "";
+  @Input() starship;
+  starshipUrl: string;;
 
   constructor() { }
 
