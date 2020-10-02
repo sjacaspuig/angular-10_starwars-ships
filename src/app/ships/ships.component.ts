@@ -10,7 +10,7 @@ import { map, catchError } from 'rxjs/operators';
 export class ShipsComponent implements OnInit {
 
   error = undefined;
-  lastResponse: {} = {};
+  lastResponse;
   starships: {}[] = [];
 
   constructor(private shipsService: ShipsService) { }
@@ -20,15 +20,18 @@ export class ShipsComponent implements OnInit {
   }
 
   fetchNext()  {
-    const url = this.lastResponse ? this.lastResponse['next'] : null;
+    const re = /http/gi;
+    const url = !this.lastResponse ? null : this.lastResponse['next'] ? this.lastResponse['next'].replace(re, 'https') : 'finished';
 
-    this.shipsService.getStarships(url)
-    .subscribe(
-      data => {
-        this.starships = this.starships.concat(data.results);
-        this.lastResponse = data;
-      },
-      error => this.error = true,
-    );
+    if(url !== 'finished') {
+      this.shipsService.getStarships(url)
+      .subscribe(
+        data => {
+          this.starships = this.starships.concat(data.results);
+          this.lastResponse = data;
+        },
+        error => this.error = true,
+      );
+    }
   }
 }
