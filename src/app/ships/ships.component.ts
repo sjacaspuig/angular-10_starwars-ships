@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ShipsService } from '../services/ships.service';
-import { map, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'ships',
@@ -9,9 +8,9 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class ShipsComponent implements OnInit {
 
-  error = undefined;
-  lastResponse;
-  starships: {}[] = [];
+  public error = undefined;
+  public starships: {}[] = [];
+  private lastResponse;
 
   constructor(private shipsService: ShipsService) { }
 
@@ -19,7 +18,7 @@ export class ShipsComponent implements OnInit {
     this.fetchNext();
   }
 
-  fetchNext()  {
+  public fetchNext(): void {
     const re = /http/gi;
     const url = !this.lastResponse ? null : this.lastResponse['next'] ? this.lastResponse['next'].replace(re, 'https') : 'finished';
 
