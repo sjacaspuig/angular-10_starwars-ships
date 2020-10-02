@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { FlashComponent } from './flash/flash.component';
 import { ShipsComponent } from './ships/ships.component';
 import { StarshipsListComponent } from './starships-list/starships-list.component';
+import { StarshipComponent } from './starship/starship.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { StarshipsListComponent } from './starships-list/starships-list.componen
     RegisterComponent,
     FlashComponent,
     ShipsComponent,
-    StarshipsListComponent
+    StarshipsListComponent,
+    StarshipComponent
   ],
   imports: [
     BrowserModule,
