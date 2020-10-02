@@ -9,15 +9,11 @@ export class ShipsService {
 
   constructor(private http: HttpClient) { }
 
-  GetStarships(url): Observable<any> {      
+  public getStarships(url): Observable<any> {      
     if (!url) {
-        url  ='https://swapi.co/api/starships/'
+        url  ='https://swapi.dev/api/starships/'
     }
 
-    return this.http.get(url, {
-        headers: {
-            'Authorization': 'none'        
-        }
-    });      
+    return this.http.get(url, {headers: {'Authorization': 'none'}});      
   }
 }
