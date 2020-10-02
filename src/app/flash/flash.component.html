@@ -1,0 +1,5 @@
+<div [ngClass]="{
+    'alert': flash,
+    'alert-success': flash?.type === 'success',
+    'alert-danger': flash?.type === 'error'
+}" [innerHTML]="flash?.message"></div>
