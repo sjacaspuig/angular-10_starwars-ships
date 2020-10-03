@@ -4,8 +4,8 @@
 <paginator
     [nextPage]="nextPage"
     [previousPage]="previousPage"
-    (onFetchNextPage)="fetchNext()"
-    (onFetchPreviousPage)="fetchPrevious()">
+    (onFetchNextPage)="fetchPage('next')"
+    (onFetchPreviousPage)="fetchPage('previous')">
 </paginator>
 
 <div class="alert alert-danger" role="alert" *ngIf="error">

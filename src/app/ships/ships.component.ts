@@ -23,33 +23,16 @@ export class ShipsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.fetchNext();
+    this.fetchPage();
   }
 
   ngOnDestroy(): void {
     this.shipsSubscription.unsubscribe();
   }
 
-  public fetchNext(): void {
+  public fetchPage(direction?: 'next' | 'previous'): void {
     const re = /http/gi;
-    const url = !this.lastResponse ? null : this.lastResponse['next'] ? this.lastResponse['next'].replace(re, 'https') : 'finished';
-
-    if(url !== 'finished') {
-      this.shipsSubscription = this.shipsService.getStarshipsByUrl(url)
-      .subscribe((data: Starships) => {
-          this.starships = data.results;
-          this.nextPage = data.next ? data.next : null;
-          this.previousPage = data.previous ? data.previous : null;
-          this.lastResponse = data;
-        },
-        error => this.error = true,
-      );
-    }
-  }
-
-  public fetchPrevious(): void {
-    const re = /http/gi;
-    const url = !this.lastResponse ? null : this.lastResponse['previous'] ? this.lastResponse['previous'].replace(re, 'https') : 'finished';
+    const url = !this.lastResponse ? null : this.lastResponse[direction] ? this.lastResponse[direction].replace(re, 'https') : 'finished';
 
     if(url !== 'finished') {
       this.shipsSubscription = this.shipsService.getStarshipsByUrl(url)
