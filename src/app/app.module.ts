@@ -23,6 +23,7 @@ import { PilotPipe } from './shared/pipes/pilot.pipe';
 import { FilmPipe } from './shared/pipes/film.pipe';
 import { MenuComponent } from './components/menu/menu.component';
 import { PilotsComponent } from './pages/pilots/pilots.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PilotsComponent } from './pages/pilots/pilots.component';
     FilmPipe,
     PaginatorComponent,
     MenuComponent,
-    PilotsComponent
+    PilotsComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

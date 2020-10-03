@@ -1,1 +1,5 @@
-<p>menu works!</p>
+<ul>
+    <li *ngFor="let menuItem of menuItems">
+        <a [routerLink]="'/' + menuItem">{{ menuItem | uppercase }}</a>
+    </li>
+</ul>

@@ -4,6 +4,7 @@ import { UserService } from './user.service';
 import { GlobalsService } from './globals.service';
 import { CookieService } from 'ngx-cookie';
 import { CurrentUser } from '../interfaces/current-user.interface';
+import { TIME_USER_LOGGED } from '../constants/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -57,7 +58,7 @@ export class AuthenticationService {
 
     // store user details in globals cookie that keeps user logged in for 1 week (or until they logout)
     let cookieExp = new Date();
-    cookieExp.setDate(cookieExp.getDate() + 7);
+    cookieExp.setDate(cookieExp.getDate() + TIME_USER_LOGGED);
     const globals = { currentUser: this.globalsService.getCurrentUser()}
     this.cookieService.putObject('globals', globals, { expires: cookieExp });
   }

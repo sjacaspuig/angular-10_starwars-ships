@@ -1,5 +1,6 @@
 <div class="container">
   <div class="col-sm-12">
+    <menu *ngIf="hasCurrentUser" [menuItems]="menuItems"></menu>
     <flash></flash>
     <router-outlet></router-outlet>
   </div>
