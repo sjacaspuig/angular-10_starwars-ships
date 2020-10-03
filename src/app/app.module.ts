@@ -15,6 +15,7 @@ import { StarshipsListComponent } from './starships-list/starships-list.componen
 import { StarshipComponent } from './starship/starship.component';
 import { StarshipDetailsComponent } from './starship-details/starship-details.component';
 import { PilotPipe } from './pipes/pilot.pipe';
+import { FilmPipe } from './pipes/film.pipe';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { PilotPipe } from './pipes/pilot.pipe';
     StarshipComponent,
     StarshipDetailsComponent,
     PilotPipe,
+    FilmPipe
   ],
   imports: [
     BrowserModule,

@@ -18,9 +18,9 @@
             <li *ngFor="let pilot of starship.pilots">{{ (pilot | pilot:'name') | async }}</li>
         </ul>
     </div>
-    <div *ngIf="starship.films">Películas:
+    <div *ngIf="starship?.films">Películas:
         <ul>
-            <li *ngFor="let film of starship?.films">{{ film }}</li>
+            <li *ngFor="let film of starship.films">{{ (film | film:'title') | async }}</li>
         </ul>
     </div>
     <div>Fecha creación: {{ starship?.created | date:'short' }}</div>
