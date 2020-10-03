@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute  } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { StarshipService } from '../../shared/services/starship.service';
+import { StarshipsService } from '../../shared/services/starships.service';
 
 @Component({
   selector: 'starship-details',
@@ -18,7 +18,7 @@ export class StarshipDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private starshipService: StarshipService,
+    private starshipService: StarshipsService,
     private location: Location
   ) { }
 

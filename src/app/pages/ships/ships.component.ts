@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { StarshipsService } from 'src/app/shared/services/starships.service';
 import { Starships } from '../../shared/interfaces/starships.interface';
 import { Starship } from '../../shared/interfaces/straship.interface';
-import { ShipsService } from '../../shared/services/ships.service';
 
 @Component({
   selector: 'ships',
@@ -18,7 +18,7 @@ export class ShipsComponent implements OnInit, OnDestroy {
   private lastResponse: Starships;
   private shipsSubscription: Subscription = null;
 
-  constructor(private shipsService: ShipsService) { }
+  constructor(private starshipsService: StarshipsService) { }
 
   ngOnInit(): void {
     this.fetchPage();
@@ -33,7 +33,7 @@ export class ShipsComponent implements OnInit, OnDestroy {
     const url = !this.lastResponse ? null : this.lastResponse[direction] ? this.lastResponse[direction].replace(re, 'https') : 'finished';
 
     if(url !== 'finished') {
-      this.shipsSubscription = this.shipsService.getStarshipsByUrl(url)
+      this.shipsSubscription = this.starshipsService.getStarshipsByUrl(url)
       .subscribe((data: Starships) => {
           this.starships = data.results;
           this.nextPage = data.next ? data.next : null;
