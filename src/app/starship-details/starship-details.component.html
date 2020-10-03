@@ -1,7 +1,32 @@
 <h1>{{ starship?.name}}</h1>
 
-<div>{{ starship?.model }}</div>
-<div>{{ starship?.manufacturer }}</div>
+<div class="ships">
+    <div>Modelo: {{ starship?.model }}</div>
+    <div>Fabricante: {{ starship?.manufacturer }}</div>
+    <div>Coste: {{ starship?.cost_in_credits }} créditos</div>
+    <div>Longitud: {{ starship?.length }} m</div>
+    <div>Máxima velocidad atmosférica: {{ starship?.max_atmosphering_speed }} m/s</div>
+    <div>Tripulación: {{ starship?.crew }}</div>
+    <div>Pasajeros: {{ starship?.passengers }}</div>
+    <div>Capacidad de carga: {{ starship?.cargo_capacity }} Kg</div>
+    <div>Duración de los consumibles: {{ starship?.consumables }}</div>
+    <div>Calificación del hiperimpulsor: {{ starship?.hyperdrive_rating }}</div>
+    <div>MGLT: {{ starship?.MGLT }}</div>
+    <div>Tipo de nave espacial: {{ starship?.starship_class }}</div>
+    <div *ngIf="starship.pilots">Pilotos:
+        <ul>
+            <li *ngFor="let pilot of starship?.pilots">{{ pilot }}</li>
+        </ul>
+    </div>
+    <div *ngIf="starship.films">Películas:
+        <ul>
+            <li *ngFor="let film of starship?.films">{{ film }}</li>
+        </ul>
+    </div>
+    <div>Fecha creación: {{ starship?.created | date:'short' }}</div>
+    <div>Fechas edición: {{ starship?.edited | date:'short' }}</div>
+    <div><img [src]="starshipImgUrl"></div>
+</div>
 
 <button (click)="goToBack()" class="btn btn-primary">Volver</button>
 

@@ -13,6 +13,7 @@ export class StarshipDetailsComponent implements OnInit, OnDestroy {
 
   starship;
   error;
+  starshipImgUrl;
   starshipSubscription: Subscription = null;
 
   constructor(
@@ -23,19 +24,25 @@ export class StarshipDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fetchNext();
+    this.setIdToImgUrl();
   }
 
   ngOnDestroy(): void {
     this.starshipSubscription.unsubscribe();
   }
 
-  public fetchNext(): void {
+  private fetchNext(): void {
     const id = this.route.snapshot.queryParamMap.get('id');
     this.starshipSubscription = this.starshipService.getStarship(id)
     .subscribe(
       data => this.starship = data,
       error => this.error = true,
     );
+  }
+
+  private setIdToImgUrl(): void {
+    const id = this.route.snapshot.queryParamMap.get('id');
+    this.starshipImgUrl = 'https://starwars-visualguide.com/assets/img/starships/' + id + '.jpg';
   }
 
   public goToBack() {
