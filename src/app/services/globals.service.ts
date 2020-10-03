@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export interface CurrentUser {
-  username: string,
-  authdata: string
-}
+import { CurrentUser } from '../interfaces/current-user.interface';
 
 @Injectable({
   providedIn: 'root'

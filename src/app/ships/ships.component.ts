@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Starships } from '../interfaces/starships.interface';
 import { ShipsService } from '../services/ships.service';
 
 @Component({
@@ -12,7 +13,9 @@ export class ShipsComponent implements OnInit {
   public starships: {}[] = [];
   private lastResponse;
 
-  constructor(private shipsService: ShipsService) { }
+  constructor(
+    private shipsService: ShipsService
+  ) { }
 
   ngOnInit(): void {
     this.fetchNext();
@@ -24,8 +27,7 @@ export class ShipsComponent implements OnInit {
 
     if(url !== 'finished') {
       this.shipsService.getStarships(url)
-      .subscribe(
-        data => {
+      .subscribe((data: Starships) => {
           this.starships = this.starships.concat(data.results);
           this.lastResponse = data;
         },

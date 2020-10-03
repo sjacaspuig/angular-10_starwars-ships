@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { UserService } from './user.service';
-import { CurrentUser, GlobalsService } from './globals.service';
+import { GlobalsService } from './globals.service';
 import { CookieService } from 'ngx-cookie';
-
-interface currentUser {
-  username: string,
-  authdata: string
-}
+import { CurrentUser } from '../interfaces/current-user.interface';
 
 @Injectable({
   providedIn: 'root'
