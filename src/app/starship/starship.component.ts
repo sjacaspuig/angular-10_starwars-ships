@@ -28,4 +28,8 @@ export class StarshipComponent implements OnInit {
     this.router.navigate(['/starship-details'], {queryParams: {id: this.starshipId}})
   }
 
+  public imgErrorHandler() {
+    this.starshipImgUrl = '../../assets/img/phantom.jpg';
+  }
+
 }
