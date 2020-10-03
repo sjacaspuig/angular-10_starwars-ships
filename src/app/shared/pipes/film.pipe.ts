@@ -1,6 +1,6 @@
 import { OnDestroy, Pipe, PipeTransform } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { FilmService } from '../shared/services/film.service';
+import { FilmService } from '../services/film.service';
 
 @Pipe({
   name: 'film'

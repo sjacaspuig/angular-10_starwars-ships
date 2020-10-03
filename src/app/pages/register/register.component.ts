@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FlashService } from '../shared/services/flash.service';
-import { UserService } from '../shared/services/user.service';
+import { FlashService } from '../../shared/services/flash.service';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'register',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../shared/services/authentication.service';
-import { FlashService } from '../shared/services/flash.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
+import { FlashService } from '../../shared/services/flash.service';
 
 @Component({
   selector: 'login',

@@ -7,17 +7,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieModule } from 'ngx-cookie';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ShipsComponent } from './pages/ships/ships.component';
+import { StarshipDetailsComponent } from './pages/starship-details/starship-details.component';
+
 import { FlashComponent } from './flash/flash.component';
-import { ShipsComponent } from './ships/ships.component';
 import { StarshipsListComponent } from './starships-list/starships-list.component';
 import { StarshipComponent } from './starship/starship.component';
-import { StarshipDetailsComponent } from './starship-details/starship-details.component';
-import { PilotPipe } from './pipes/pilot.pipe';
-import { FilmPipe } from './pipes/film.pipe';
 import { PaginatorComponent } from './paginator/paginator.component';
 
+import { PilotPipe } from './shared/pipes/pilot.pipe';
+import { FilmPipe } from './shared/pipes/film.pipe';
 
 @NgModule({
   declarations: [

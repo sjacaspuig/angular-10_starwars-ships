@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Starships } from '../shared/interfaces/starships.interface';
-import { Starship } from '../shared/interfaces/straship.interface';
-import { ShipsService } from '../shared/services/ships.service';
+import { Starships } from '../../shared/interfaces/starships.interface';
+import { Starship } from '../../shared/interfaces/straship.interface';
+import { ShipsService } from '../../shared/services/ships.service';
 
 @Component({
   selector: 'ships',

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ShipsComponent } from './ships/ships.component';
-import { StarshipDetailsComponent } from './starship-details/starship-details.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ShipsComponent } from './pages/ships/ships.component';
+import { StarshipDetailsComponent } from './pages/starship-details/starship-details.component';
 
 const routes: Routes = [
   // { path: 'first-component', component: FirstComponent },
