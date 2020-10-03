@@ -18,9 +18,7 @@ export class ShipsComponent implements OnInit, OnDestroy {
   private lastResponse: Starships;
   private shipsSubscription: Subscription = null;
 
-  constructor(
-    private shipsService: ShipsService
-  ) { }
+  constructor(private shipsService: ShipsService) { }
 
   ngOnInit(): void {
     this.fetchPage();
