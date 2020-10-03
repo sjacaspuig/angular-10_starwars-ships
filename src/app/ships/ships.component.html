@@ -1,6 +1,7 @@
 <h1>Ships</h1>
 
 <starships-list [starships]="starships" (onFetchNextPage)="fetchNext()"></starships-list>
+<paginator></paginator>
 
 <div class="alert alert-danger" role="alert" *ngIf="error">
     Hi ha hagut un error al fer la petició
