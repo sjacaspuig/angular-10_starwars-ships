@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
 export class StarshipComponent implements OnInit {
 
   @Input() starship;
-  starshipUrl: string;
+  starshipImgUrl: string;
   starshipId: string;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.starshipId = this.getStarshipId();
-    this.starshipUrl = 'https://starwars-visualguide.com/assets/img/starships/' + this.starshipId + '.jpg';
+    this.starshipImgUrl = 'https://starwars-visualguide.com/assets/img/starships/' + this.starshipId + '.jpg';
   }
 
   private getStarshipId(): string {
