@@ -11,7 +11,7 @@ export interface Flash {
   providedIn: 'root'
 })
 export class FlashService {
-  
+
   private flash: Flash = null;
   private updateSource = new Subject<Flash>();
   public update$ = this.updateSource.asObservable();
@@ -20,36 +20,32 @@ export class FlashService {
     this.clearFlashMessage();
   }
 
-  public clearFlashMessage(): void {;
-    if(this.flash) {
-        if(!this.flash.keepAfterLocationChange) {
+  public clearFlashMessage(): void {
+    if (this.flash) {
+        if (!this.flash.keepAfterLocationChange) {
             this.flash = null;
         } else {
             // only keep for a single location change
-            this.flash.keepAfterLocationChange = false
+            this.flash.keepAfterLocationChange = false;
         }
     }
   }
 
   public success(message: string, keepAfterLocationChange?: boolean): void {
-    this.flash = {
-      message: message,
-      type: 'success',
-      keepAfterLocationChange: keepAfterLocationChange
-    };
+    this.flash.message = message;
+    this.flash.type = 'success';
+    this.flash.keepAfterLocationChange = keepAfterLocationChange;
     this.updateFlash();
   }
 
   public error(message: string, keepAfterLocationChange?: boolean): void {
-    this.flash = {
-      message: message,
-      type: 'error',
-      keepAfterLocationChange: keepAfterLocationChange
-    };
+    this.flash.message = message;
+    this.flash.type = 'error';
+    this.flash.keepAfterLocationChange = keepAfterLocationChange;
     this.updateFlash();
   }
 
-  private updateFlash() {
+  private updateFlash(): void {
     this.updateSource.next(this.flash);
   }
 }

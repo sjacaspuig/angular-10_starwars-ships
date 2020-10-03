@@ -17,9 +17,9 @@ export class UserService {
 
   public getById(id: any): Observable<any> {
     return new Observable(subscriber => {
-      const filtered = this.getUsers().filter( user => user.id === id);
-      const user = filtered.length ? filtered[0] : null;
-      subscriber.next(user);
+      const filtered = this.getUsers().filter(user => user.id === id);
+      const unicUser = filtered.length ? filtered[0] : null;
+      subscriber.next(unicUser);
       subscriber.complete();
     });
   }
@@ -27,8 +27,8 @@ export class UserService {
   public getByUsername(username: any): Observable<any> {
     return new Observable(subscriber => {
       const filtered = this.getUsers().filter( user => user.username === username);
-      const user = filtered.length ? filtered[0] : null;
-      subscriber.next(user);
+      const unicUser = filtered.length ? filtered[0] : null;
+      subscriber.next(unicUser);
       subscriber.complete();
     });
   }
@@ -42,33 +42,33 @@ export class UserService {
           if (duplicateUser !== null) {
             subscriber.next({success: false, message: 'Username "' + user.username + '" is already taken' });
           } else {
-              let users = this.getUsers();
-  
+              const users = this.getUsers();
+
               // assign id
-              let lastUser = users[users.length - 1] || { id: 0 };
+              const lastUser = users[users.length - 1] || { id: 0 };
               user.id = lastUser.id + 1;
-  
+
               // save to local storage
               users.push(user);
               this.setUsers(users);
-  
+
               subscriber.next({ success: true });
           }
           subscriber.complete();
-        })
+        });
       }, 1000);
-    })
+    });
   }
 
   public update(user: any): Observable<any> {
     return new Observable(subscriber => {
-      let users = this.getUsers();
+      const users = this.getUsers();
       for (let i = 0; i < users.length; i++) {
         if (users[i].id === user.id) {
-            users[i] = user;
-            break;
+          users[i] = user;
+          break;
         }
-    }
+      }
       this.setUsers(users);
       subscriber.complete();
     });
@@ -76,13 +76,13 @@ export class UserService {
 
   public delete(id: any): Observable<any> {
     return new Observable(subscriber => {
-      let users = this.getUsers();
+      const users = this.getUsers();
       for (let i = 0; i < users.length; i++) {
-          let user = users[i];
-          if (user.id === id) {
-              users.splice(i, 1);
-              break;
-          }
+        const user = users[i];
+        if (user.id === id) {
+          users.splice(i, 1);
+          break;
+        }
       }
       this.setUsers(users);
       subscriber.complete();
@@ -90,7 +90,7 @@ export class UserService {
   }
 
   private getUsers(): any {
-    if(!localStorage.users){
+    if (!localStorage.users){
         localStorage.users = JSON.stringify([]);
     }
     return JSON.parse(localStorage.users);

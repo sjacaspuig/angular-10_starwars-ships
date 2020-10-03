@@ -10,8 +10,8 @@ import { GlobalsService } from './shared/services/globals.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  
-  hasCurrentUser: boolean = false;
+
+  hasCurrentUser = false;
   currentUserSubscription: Subscription = null;
   menuItems = MENU_LIST;
 

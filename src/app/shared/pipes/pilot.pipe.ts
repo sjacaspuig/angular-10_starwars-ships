@@ -12,26 +12,26 @@ export class PilotPipe implements PipeTransform, OnDestroy {
 
   constructor(private pilotService: PilotService) {}
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.pilotSubscription.unsubscribe();
   }
 
   transform(pilotUrl: string, arg: string): Observable<string> {
     const url = pilotUrl.replace(this.re, 'https');
-    
+
     return new Observable(observer => {
       this.pilotSubscription = this.pilotService.getPilotByUrl(url)
-      .subscribe( 
+      .subscribe(
         data => {
-          observer.next(data[arg])
+          observer.next(data[arg]);
           observer.complete();
         },
         error => {
-          observer.next('No se ha podido encontrar el piloto'),
+          observer.next('No se ha podido encontrar el piloto');
           observer.complete();
         }
-      )
-    })
+      );
+    });
   }
 
 }

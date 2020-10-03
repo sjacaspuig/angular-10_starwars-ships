@@ -1,5 +1,4 @@
 export interface CurrentUser {
-    username: string,
-    authdata: string
-  }
-  
+  username: string;
+  authdata: string;
+}

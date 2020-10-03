@@ -30,18 +30,18 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  register() {
+  register(): void {
     this.dataLoading = true;
     this.userService.create(this.registerForm.value)
-      .subscribe( response => {
-        if (response['success']) {
+      .subscribe( (response: {success: string, message: string}) => {
+        if (response.success) {
           this.flashService.success('Registration successful', true);
           this.router.navigateByUrl('/login');
         } else {
           this.flashService.error(response.message);
           this.dataLoading = false;
         }
-    })
+    });
   }
 
 }

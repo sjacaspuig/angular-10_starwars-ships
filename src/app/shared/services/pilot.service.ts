@@ -9,7 +9,7 @@ export class PilotService {
 
   constructor(private http: HttpClient) { }
 
-  public getPilotByUrl(url): Observable<any> {      
-    return this.http.get(url, {headers: {'Authorization': 'none'}});      
+  public getPilotByUrl(url): Observable<any> {
+    return this.http.get(url, {headers: {'Authorization': 'none'}});
   }
 }

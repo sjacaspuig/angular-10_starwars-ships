@@ -9,7 +9,7 @@ export class FilmService {
 
   constructor(private http: HttpClient) { }
 
-  public getFilmByUrl(url): Observable<any> {      
-    return this.http.get(url, {headers: {'Authorization': 'none'}});      
+  public getFilmByUrl(url): Observable<any> {
+    return this.http.get(url, {headers: {'Authorization': 'none'}});
   }
 }

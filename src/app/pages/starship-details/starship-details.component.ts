@@ -46,7 +46,7 @@ export class StarshipDetailsComponent implements OnInit, OnDestroy {
     this.starshipImgUrl = 'https://starwars-visualguide.com/assets/img/starships/' + id + '.jpg';
   }
 
-  public goToBack() {
+  public goToBack(): void {
     this.location.back();
   }
 

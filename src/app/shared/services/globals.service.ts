@@ -22,7 +22,7 @@ export class GlobalsService {
     this.updateCurrentUser(currrentUser);
   }
 
-  private updateCurrentUser(currentUser: CurrentUser) {
+  private updateCurrentUser(currentUser: CurrentUser): void {
     this.updateCurrentUserSource.next(currentUser);
   }
 }

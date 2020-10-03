@@ -12,26 +12,26 @@ export class FilmPipe implements PipeTransform, OnDestroy {
 
   constructor(private filmService: FilmService) {}
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.filmSubscription.unsubscribe();
   }
 
   transform(filmUrl: string, arg: string): Observable<string> {
     const url = filmUrl.replace(this.re, 'https');
-    
+
     return new Observable(observer => {
       this.filmSubscription = this.filmService.getFilmByUrl(url)
-      .subscribe( 
+      .subscribe(
         data => {
-          observer.next(data[arg])
+          observer.next(data[arg]);
           observer.complete();
         },
         error => {
-          observer.next('No se ha podido encontrar el nombre de la película'),
+          observer.next('No se ha podido encontrar el nombre de la película');
           observer.complete();
         }
-      )
-    })
+      );
+    });
   }
 
 }

@@ -16,14 +16,14 @@ export class FlashComponent implements OnInit, OnDestroy {
   updateSubscription: Subscription = null;
 
   constructor(private flashService: FlashService) { }
-  
+
   ngOnInit(): void {
     this.updateSubscription = this.flashService.update$.subscribe((flash: Flash) => {
       this.flash = flash;
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.updateSubscription.unsubscribe();
   }
 

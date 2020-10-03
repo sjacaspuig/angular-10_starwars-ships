@@ -7,25 +7,25 @@ import { Observable } from 'rxjs';
 })
 export class StarshipsService {
 
-  private url: string = 'https://swapi.dev/api/starships/';
+  private url = 'https://swapi.dev/api/starships/';
 
   constructor(private http: HttpClient) { }
 
-  public getStarshipsByUrl(url: string): Observable<any> {      
+  public getStarshipsByUrl(url: string): Observable<any> {
     if (!url) {
         url  = this.url;
     }
 
-    return this.getStraships(url);      
+    return this.getStraships(url);
   }
 
-  public getStarshipById(id: string): Observable<any> {      
+  public getStarshipById(id: string): Observable<any> {
     const url  = this.url + id + '/';
 
-    return this.getStraships(url);        
+    return this.getStraships(url);
   }
 
   private getStraships(url: string): Observable<any> {
-    return this.http.get(url, {headers: {'Authorization': 'none'}}); 
+    return this.http.get(url, {headers: {'Authorization': 'none'}});
   }
 }

@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     // reset login status
     this.authenticationService.clearCredentials();
-    
+
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -45,6 +45,5 @@ export class LoginComponent implements OnInit {
         this.dataLoading = false;
       }
     });
-  };
-
+  }
 }

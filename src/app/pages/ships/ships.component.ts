@@ -32,7 +32,7 @@ export class ShipsComponent implements OnInit, OnDestroy {
     const re = /http/gi;
     const url = !this.lastResponse ? null : this.lastResponse[direction] ? this.lastResponse[direction].replace(re, 'https') : 'finished';
 
-    if(url !== 'finished') {
+    if (url !== 'finished') {
       this.shipsSubscription = this.starshipsService.getStarshipsByUrl(url)
       .subscribe((data: Starships) => {
           this.starships = data.results;

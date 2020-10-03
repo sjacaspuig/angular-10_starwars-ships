@@ -21,15 +21,15 @@ export class StarshipComponent implements OnInit {
   }
 
   private getStarshipId(): string {
-    const url = this.starship['url'];
-    return url.split("/").filter(item => item !== "").slice(-1)[0];
+    const url = this.starship.url;
+    return url.split('/').filter(item => item !== '').slice(-1)[0];
   }
 
-  public goToDetails() {
-    this.router.navigate(['/starship-details'], {queryParams: {id: this.starshipId}})
+  public goToDetails(): void {
+    this.router.navigate(['/starship-details'], {queryParams: {id: this.starshipId}});
   }
 
-  public imgErrorHandler() {
+  public imgErrorHandler(): void {
     this.starshipImgUrl = '../../assets/images/phantom.jpg';
   }
 
