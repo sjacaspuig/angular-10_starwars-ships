@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { Flash, FlashService } from '../services/flash.service';
+import { Flash, FlashService } from '../shared/services/flash.service';
 
 
 @Component({

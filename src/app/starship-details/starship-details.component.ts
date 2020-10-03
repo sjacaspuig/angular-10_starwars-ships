@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute  } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { StarshipService } from '../services/starship.service';
+import { StarshipService } from '../shared/services/starship.service';
 
 @Component({
   selector: 'starship-details',

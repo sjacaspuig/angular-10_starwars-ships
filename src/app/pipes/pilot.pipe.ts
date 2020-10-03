@@ -1,6 +1,6 @@
 import { OnDestroy, Pipe, PipeTransform } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { PilotService } from '../services/pilot.service';
+import { PilotService } from '../shared/services/pilot.service';
 
 @Pipe({
   name: 'pilot'
