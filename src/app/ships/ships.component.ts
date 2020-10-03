@@ -26,7 +26,7 @@ export class ShipsComponent implements OnInit {
     const url = !this.lastResponse ? null : this.lastResponse['next'] ? this.lastResponse['next'].replace(re, 'https') : 'finished';
 
     if(url !== 'finished') {
-      this.shipsService.getStarships(url)
+      this.shipsService.getStarshipsByUrl(url)
       .subscribe((data: Starships) => {
           this.starships = this.starships.concat(data.results);
           this.lastResponse = data;

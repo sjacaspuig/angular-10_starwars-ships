@@ -9,7 +9,7 @@ export class StarshipService {
 
   constructor(private http: HttpClient) { }
 
-  public getStarship(id): Observable<any> {      
+  public getStarshipById(id): Observable<any> {      
     const url  ='https://swapi.dev/api/starships/' + id + '/';
     return this.http.get(url, {headers: {'Authorization': 'none'}});      
   }

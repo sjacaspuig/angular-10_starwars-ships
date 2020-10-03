@@ -23,7 +23,7 @@ export class StarshipDetailsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.fetchNext();
+    this.fetchStarshipDetails();
     this.setIdToImgUrl();
   }
 
@@ -31,9 +31,9 @@ export class StarshipDetailsComponent implements OnInit, OnDestroy {
     this.starshipSubscription.unsubscribe();
   }
 
-  private fetchNext(): void {
+  private fetchStarshipDetails(): void {
     const id = this.route.snapshot.queryParamMap.get('id');
-    this.starshipSubscription = this.starshipService.getStarship(id)
+    this.starshipSubscription = this.starshipService.getStarshipById(id)
     .subscribe(
       data => this.starship = data,
       error => this.error = true,

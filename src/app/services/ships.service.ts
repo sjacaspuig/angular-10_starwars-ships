@@ -9,7 +9,7 @@ export class ShipsService {
 
   constructor(private http: HttpClient) { }
 
-  public getStarships(url): Observable<any> {      
+  public getStarshipsByUrl(url): Observable<any> {      
     if (!url) {
         url  ='https://swapi.dev/api/starships/'
     }
