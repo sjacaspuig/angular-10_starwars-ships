@@ -29,7 +29,7 @@ export class StarshipComponent implements OnInit {
   }
 
   public imgErrorHandler() {
-    this.starshipImgUrl = '../../assets/img/phantom.jpg';
+    this.starshipImgUrl = '../../assets/images/phantom.jpg';
   }
 
 }
