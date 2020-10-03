@@ -1,21 +1,26 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { Observable } from 'rxjs';
+import { OnDestroy, Pipe, PipeTransform } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { PilotService } from '../services/pilot.service';
 
 @Pipe({
   name: 'pilot'
 })
-export class PilotPipe implements PipeTransform {
+export class PilotPipe implements PipeTransform, OnDestroy {
 
   private re = /http/gi;
+  private pilotSubscription: Subscription = null;
 
   constructor(private pilotService: PilotService) {}
+
+  ngOnDestroy() {
+    this.pilotSubscription.unsubscribe();
+  }
 
   transform(pilotUrl: string, arg: string): Observable<string> {
     const url = pilotUrl.replace(this.re, 'https');
     
     return new Observable(observer => {
-      this.pilotService.getPilotByUrl(url)
+      this.pilotSubscription = this.pilotService.getPilotByUrl(url)
       .subscribe( 
         data => {
           observer.next(data[arg])

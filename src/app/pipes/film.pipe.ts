@@ -1,21 +1,26 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { Observable } from 'rxjs';
+import { OnDestroy, Pipe, PipeTransform } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { FilmService } from '../services/film.service';
 
 @Pipe({
   name: 'film'
 })
-export class FilmPipe implements PipeTransform {
+export class FilmPipe implements PipeTransform, OnDestroy {
 
   private re = /http/gi;
+  private filmSubscription: Subscription = null;
 
   constructor(private filmService: FilmService) {}
+
+  ngOnDestroy() {
+    this.filmSubscription.unsubscribe();
+  }
 
   transform(filmUrl: string, arg: string): Observable<string> {
     const url = filmUrl.replace(this.re, 'https');
     
     return new Observable(observer => {
-      this.filmService.getFilmByUrl(url)
+      this.filmSubscription = this.filmService.getFilmByUrl(url)
       .subscribe( 
         data => {
           observer.next(data[arg])
