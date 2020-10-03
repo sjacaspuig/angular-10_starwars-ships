@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Starship } from 'src/app/shared/interfaces/straship.interface';
 
 @Component({
   selector: 'starship',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class StarshipComponent implements OnInit {
 
-  @Input() starship;
+  @Input() starship: Starship;
   starshipImgUrl: string;
   starshipId: string;
 

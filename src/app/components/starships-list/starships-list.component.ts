@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Starships } from 'src/app/shared/interfaces/starships.interface';
 
 @Component({
   selector: 'starships-list',
@@ -7,16 +8,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class StarshipsListComponent implements OnInit {
 
-  @Input() starships: [] = [];
-  @Output() onFetchNextPage = new EventEmitter<void>();
+  @Input() starships: Starships;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  fetchNextPage = function () {
-    this.onFetchNextPage.emit();
   }
 
 }

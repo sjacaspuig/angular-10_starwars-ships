@@ -13,12 +13,12 @@
     <div>Calificación del hiperimpulsor: {{ starship?.hyperdrive_rating }}</div>
     <div>MGLT: {{ starship?.MGLT }}</div>
     <div>Tipo de nave espacial: {{ starship?.starship_class }}</div>
-    <div *ngIf="starship?.pilots">Pilotos:
+    <div *ngIf="starship?.pilots.length > 0">Pilotos:
         <ul>
             <li *ngFor="let pilot of starship.pilots">{{ (pilot | pilot:'name') | async }}</li>
         </ul>
     </div>
-    <div *ngIf="starship?.films">Películas:
+    <div *ngIf="starship?.films.length > 0">Películas:
         <ul>
             <li *ngFor="let film of starship.films">{{ (film | film:'title') | async }}</li>
         </ul>

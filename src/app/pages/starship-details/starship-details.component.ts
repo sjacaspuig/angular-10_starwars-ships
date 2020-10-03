@@ -1,7 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute  } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Starship } from 'src/app/shared/interfaces/straship.interface';
 import { StarshipsService } from '../../shared/services/starships.service';
 
 @Component({
@@ -11,9 +12,9 @@ import { StarshipsService } from '../../shared/services/starships.service';
 })
 export class StarshipDetailsComponent implements OnInit, OnDestroy {
 
-  starship;
-  error;
-  starshipImgUrl;
+  starship: Starship;
+  error: boolean;
+  starshipImgUrl: string;
   starshipSubscription: Subscription = null;
 
   constructor(
@@ -35,7 +36,7 @@ export class StarshipDetailsComponent implements OnInit, OnDestroy {
     const id = this.route.snapshot.queryParamMap.get('id');
     this.starshipSubscription = this.starshipService.getStarshipById(id)
     .subscribe(
-      data => this.starship = data,
+      (data: Starship) => this.starship = data,
       error => this.error = true,
     );
   }

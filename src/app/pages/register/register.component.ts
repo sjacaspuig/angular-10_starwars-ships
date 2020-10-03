@@ -32,7 +32,6 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.dataLoading = true;
-    console.log(localStorage);
     this.userService.create(this.registerForm.value)
       .subscribe( response => {
         if (response['success']) {
