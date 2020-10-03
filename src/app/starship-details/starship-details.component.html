@@ -1,1 +1,10 @@
-<p>starship-details works!</p>
+<h1>{{ starship?.name}}</h1>
+
+<div>{{ starship?.model }}</div>
+<div>{{ starship?.manufacturer }}</div>
+
+<button (click)="goToBack()" class="btn btn-primary">Volver</button>
+
+<div class="alert alert-danger" role="alert" *ngIf="error">
+    Hi ha hagut un error al fer la petició
+</div>
