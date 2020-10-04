@@ -34,11 +34,10 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.dataLoading = true;
     const dataForm = this.loginForm.controls;
-    console.log(dataForm.username.value);
-    console.log(dataForm.password.value);
     this.authenticationService.login(dataForm.username.value, dataForm.password.value, (response) => {
       if (response.success) {
         this.authenticationService.setCredentials(dataForm.username.value, dataForm.password.value);
+        this.flashService.clearFlashMessage();
         this.router.navigateByUrl('/ships');
       } else {
         this.flashService.error(response.message);

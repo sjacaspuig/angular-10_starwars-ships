@@ -2,4 +2,4 @@
     'alert': flash,
     'alert-success': flash?.type === 'success',
     'alert-danger': flash?.type === 'error'
-}" [innerHTML]="flash?.message"></div>
+}" [innerHTML]="flash?.message" *ngIf="flash?.keepAfterLocationChange"></div>
