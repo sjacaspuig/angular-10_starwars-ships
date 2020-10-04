@@ -17,7 +17,7 @@ describe('ShipsComponent', () => {
     .compileComponents();
     fixture = TestBed.createComponent(ShipsComponent);
     component = fixture.componentInstance;
-    starshipsService = TestBed.get(StarshipsService);
+    starshipsService = TestBed.inject(StarshipsService);
     fixture.detectChanges();
   });
 
@@ -27,7 +27,7 @@ describe('ShipsComponent', () => {
       expect(component.nextPage).toEqual('http://swapi.dev/api/starships/?page=2');
       expect(component.previousPage).toBeNull();
       done();
-    })
+    });
   });
 
   it('should create', () => {

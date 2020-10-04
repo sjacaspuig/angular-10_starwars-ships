@@ -7,14 +7,14 @@ import { LogoutComponent } from './logout.component';
 describe('LogoutComponent', () => {
   let component: LogoutComponent;
   let fixture: ComponentFixture<LogoutComponent>;
-  let routerStub = {navigateByUrl: jasmine.createSpy('navigateByUrl')};
+  const routerStub = {navigateByUrl: jasmine.createSpy('navigateByUrl')};
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [ LogoutComponent ],
-      providers: [ 
-        { provide: Router, useValue: routerStub } 
+      providers: [
+        { provide: Router, useValue: routerStub }
       ]
     })
     .compileComponents();

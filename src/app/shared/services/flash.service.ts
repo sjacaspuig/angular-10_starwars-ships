@@ -37,7 +37,7 @@ export class FlashService {
     this.updateFlash();
   }
 
-  private setFlashData(message: string, type: string, keepAfterLocationChange?: boolean) {
+  private setFlashData(message: string, type: string, keepAfterLocationChange?: boolean): void {
     this.flash = {};
     this.flash.message = message;
     this.flash.type = type;
