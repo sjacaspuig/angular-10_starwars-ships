@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CacheService } from './cache.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private cacheService: CacheService) { }
 
   public getAll(): Observable<any> {
     return new Observable(subscriber => {
@@ -90,13 +91,13 @@ export class UserService {
   }
 
   private getUsers(): any {
-    if (!localStorage.users){
-        localStorage.users = JSON.stringify([]);
-    }
-    return JSON.parse(localStorage.users);
+    const users: any = this.cacheService.load('users');
+    return users ? users : [];
   }
 
   private setUsers(users): void {
-      localStorage.users = JSON.stringify(users);
+    this.cacheService.save({key: 'users', data: users});
   }
+
+
 }
