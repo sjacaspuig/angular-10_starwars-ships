@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-
-export interface Flash {
-  message?: string;
-  type?: string;
-  keepAfterLocationChange?: boolean;
-}
+import { Flash } from '../interfaces/flash.interface';
 
 @Injectable({
   providedIn: 'root'
