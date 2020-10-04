@@ -30,6 +30,7 @@ export class ShipsComponent implements OnInit, OnDestroy {
 
   public fetchPage(direction?: 'next' | 'previous'): void {
     const re = /http/gi;
+    // Get the next or previous url if not set finished to indicate that is the end and there is any url
     const url = !this.lastResponse ? null : this.lastResponse[direction] ? this.lastResponse[direction].replace(re, 'https') : 'finished';
 
     if (url !== 'finished') {
