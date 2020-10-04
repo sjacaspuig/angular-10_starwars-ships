@@ -15,11 +15,11 @@ import { PilotsComponent } from './pages/pilots/pilots.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 
 // Components
-import { FlashModule } from './components/flash/flash.module';
-import { MenuModule } from './components/menu/menu.module';
-import { PaginatorModule } from './components/paginator/paginator.module';
-import { StarshipModule } from './components/starship/starship.module';
-import { StarshipsListModule } from './components/starships-list/starships-list.module';
+import { StarshipComponent } from './components/starship/starship.component';
+import { StarshipsListComponent } from './components/starships-list/starships-list.component';
+import { FlashComponent } from './components/flash/flash.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 // Pipes
 import { PilotPipe } from './shared/pipes/pilot.pipe';
@@ -36,6 +36,11 @@ import { FilmPipe } from './shared/pipes/film.pipe';
     FilmPipe,
     PilotsComponent,
     LogoutComponent,
+    FlashComponent,
+    StarshipsListComponent,
+    StarshipComponent,
+    PaginatorComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -43,12 +48,7 @@ import { FilmPipe } from './shared/pipes/film.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CookieModule.forRoot(),
-    FlashModule,
-    MenuModule,
-    PaginatorModule,
-    StarshipModule,
-    StarshipsListModule
+    CookieModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
