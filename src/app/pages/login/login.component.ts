@@ -11,7 +11,7 @@ import { FlashService } from '../../shared/services/flash.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
+  public loginForm: FormGroup;
   public dataLoading: boolean;
 
   constructor(

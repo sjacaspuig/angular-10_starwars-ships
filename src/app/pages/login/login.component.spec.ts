@@ -36,7 +36,44 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    // Trigger the lifecycle function on our component
+    component.ngOnInit();
     fixture.detectChanges();
+  });
+
+  it('loginForm invalid when empty', () => {
+    expect(component.loginForm.valid).toBeFalsy();
+  });
+
+  it('username field validity', () => {
+    let username = component.loginForm.controls['username'];
+    expect(username.valid).toBeFalsy();
+  });
+
+  it('password field validity', () => {
+    let password = component.loginForm.controls['password'];
+    expect(password.valid).toBeFalsy();
+  });
+
+  it('username field requireds', () => {
+    let errors = {};
+    let username = component.loginForm.controls['username'];
+    errors = username.errors || {};
+    expect(errors['required']).toBeTruthy();
+  });
+
+  it('password field requireds', () => {
+    let errors = {};
+    let password = component.loginForm.controls['password'];
+    errors = password.errors || {};
+    expect(errors['required']).toBeTruthy();
+  });
+
+  it('loginForm valid when full', () => {
+    expect(component.loginForm.valid).toBeFalsy();
+    component.loginForm.controls['username'].setValue("sergijacas");
+    component.loginForm.controls['password'].setValue("123456789");
+    expect(component.loginForm.valid).toBeTruthy();
   });
 
   it('should create', () => {
