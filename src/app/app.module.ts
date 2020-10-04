@@ -11,36 +11,31 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ShipsComponent } from './pages/ships/ships.component';
 import { StarshipDetailsComponent } from './pages/starship-details/starship-details.component';
+import { PilotsComponent } from './pages/pilots/pilots.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 // Components
-import { FlashComponent } from './components/flash/flash.component';
-import { StarshipsListComponent } from './components/starships-list/starships-list.component';
-import { StarshipComponent } from './components/starship/starship.component';
-import { PaginatorComponent } from './components/paginator/paginator.component';
+import { FlashModule } from './components/flash/flash.module';
+import { MenuModule } from './components/menu/menu.module';
+import { PaginatorModule } from './components/paginator/paginator.module';
+import { StarshipModule } from './components/starship/starship.module';
+import { StarshipsListModule } from './components/starships-list/starships-list.module';
 
 // Pipes
 import { PilotPipe } from './shared/pipes/pilot.pipe';
 import { FilmPipe } from './shared/pipes/film.pipe';
-import { MenuComponent } from './components/menu/menu.component';
-import { PilotsComponent } from './pages/pilots/pilots.component';
-import { LogoutComponent } from './pages/logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    FlashComponent,
     ShipsComponent,
-    StarshipsListComponent,
-    StarshipComponent,
     StarshipDetailsComponent,
     PilotPipe,
     FilmPipe,
-    PaginatorComponent,
-    MenuComponent,
     PilotsComponent,
-    LogoutComponent
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +43,12 @@ import { LogoutComponent } from './pages/logout/logout.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CookieModule.forRoot()
+    CookieModule.forRoot(),
+    FlashModule,
+    MenuModule,
+    PaginatorModule,
+    StarshipModule,
+    StarshipsListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
