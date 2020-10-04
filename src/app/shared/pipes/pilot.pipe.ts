@@ -1,5 +1,6 @@
 import { OnDestroy, Pipe, PipeTransform } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { Pilot } from '../interfaces/pilot.interface';
 import { PilotService } from '../services/pilot.service';
 
 @Pipe({
@@ -22,7 +23,7 @@ export class PilotPipe implements PipeTransform, OnDestroy {
     return new Observable(observer => {
       this.pilotSubscription = this.pilotService.getPilotByUrl(url)
       .subscribe(
-        data => {
+        (data: Pilot) => {
           observer.next(data[arg]);
           observer.complete();
         },

@@ -1,6 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TIME_CACHE } from '../constants/constants';
+import { Starships } from '../interfaces/starships.interface';
+import { Starship } from '../interfaces/straship.interface';
+import { HttpClientService } from './http-client.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,23 +12,27 @@ export class StarshipsService {
 
   private url = 'https://swapi.dev/api/starships/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClientService) { }
 
-  public getStarshipsByUrl(url: string): Observable<any> {
+  public getAllStarshipsByUrl(url: string): Observable<Starships> {
     if (!url) {
         url  = this.url;
     }
 
-    return this.getStraships(url);
+    return this.http.get<Starships>({
+      url: url,
+      body: {headers: {'Authorization': 'none'}},
+      cacheMins: TIME_CACHE
+    });
   }
 
-  public getStarshipById(id: string): Observable<any> {
+  public getStarshipById(id: string): Observable<Starship> {
     const url  = this.url + id + '/';
 
-    return this.getStraships(url);
-  }
-
-  private getStraships(url: string): Observable<any> {
-    return this.http.get(url, {headers: {'Authorization': 'none'}});
+    return this.http.get<Starship>({
+      url: url,
+      body: {headers: {'Authorization': 'none'}},
+      cacheMins: TIME_CACHE
+    });
   }
 }

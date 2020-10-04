@@ -33,7 +33,7 @@ export class ShipsComponent implements OnInit, OnDestroy {
     const url = !this.lastResponse ? null : this.lastResponse[direction] ? this.lastResponse[direction].replace(re, 'https') : 'finished';
 
     if (url !== 'finished') {
-      this.shipsSubscription = this.starshipsService.getStarshipsByUrl(url)
+      this.shipsSubscription = this.starshipsService.getAllStarshipsByUrl(url)
       .subscribe((data: Starships) => {
           this.starships = data.results;
           this.nextPage = data.next ? data.next : null;

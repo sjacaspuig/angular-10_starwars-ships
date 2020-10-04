@@ -4,7 +4,8 @@ import { UserService } from './user.service';
 import { GlobalsService } from './globals.service';
 import { CookieService } from 'ngx-cookie';
 import { CurrentUser } from '../interfaces/current-user.interface';
-import { TIME_USER_LOGGED } from '../constants/constants';
+import { TIME_CACHE, TIME_USER_LOGGED } from '../constants/constants';
+import { HttpClientService } from './http-client.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthenticationService {
   private headers: HttpHeaders;
 
   constructor(
-    private http: HttpClient,
+    private http: HttpClientService,
     private userService: UserService,
     private globalsService: GlobalsService,
     private cookieService: CookieService
@@ -40,8 +41,11 @@ export class AuthenticationService {
 
     /* Use this for real authentication
      ----------------------------------------------*/
-    // this.http.post('/api/authenticate', { username: username, password: password }, {headers: this.headers})
-    // .subscribe(response => callback(response));
+    // this.http.post<any>({
+    //   url: '/api/authenticate',
+    //   body: {body: { username: username, password: password },headers: {'Authorization': this.headers}},
+    //   cacheMins: TIME_CACHE}
+    // ).subscribe(response => callback(response));
   }
 
   public setCredentials(username, password): void {
