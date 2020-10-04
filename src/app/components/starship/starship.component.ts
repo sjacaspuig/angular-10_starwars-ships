@@ -21,8 +21,8 @@ export class StarshipComponent implements OnInit {
   }
 
   private getStarshipId(): string {
-    const url = this.starship.url;
-    return url.split('/').filter(item => item !== '').slice(-1)[0];
+    const url = this.starship?.url;
+    return url?.split('/').filter(item => item !== '').slice(-1)[0];
   }
 
   public goToDetails(): void {

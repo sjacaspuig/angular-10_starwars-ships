@@ -1,12 +1,26 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { FlashModule } from './components/flash/flash.module';
+import { MenuModule } from './components/menu/menu.module';
+import { PaginatorModule } from './components/paginator/paginator.module';
+import { StarshipModule } from './components/starship/starship.module';
+import { StarshipsListModule } from './components/starships-list/starships-list.module';
 
 describe('AppComponent', () => {
+
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        FlashModule,
+        MenuModule,
+        PaginatorModule,
+        StarshipModule,
+        StarshipsListModule,
       ],
       declarations: [
         AppComponent
@@ -14,22 +28,14 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'md-starwars'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('md-starwars');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('md-starwars app is running!');
   });
+
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
+  });
+
 });
