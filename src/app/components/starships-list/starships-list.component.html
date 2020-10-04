@@ -1,5 +1,12 @@
 <div class="ships">
     <div class="row">
-        <starship *ngFor="let starship of starships" [starship]="starship" class="col-xs-6 col-sm-6 col-md-3"></starship>
+        <starship 
+            *ngFor="let starship of starships, ; let i = index"
+            [starship]="starship"
+            [ngClass]="{
+                'col-xs-6 col-sm-6 col-md-6': i % 3 !== 0,
+                'col-xs-12 col-sm-12 col-md-12': i % 3 === 0
+            }">
+        </starship>
     </div>
 </div>

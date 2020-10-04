@@ -1,0 +1,31 @@
+.button {
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    height: auto;
+    min-height: 40px;
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+}
+
+.button-primary {
+    color: #fff;
+    background-color: #b99d6b;
+    border-color: #b99d6b;
+}
+
+.button-secondary {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+.button-primary:hover,
+.button-secondary:hover {
+    opacity: 0.5;
+    text-decoration: none;
+    color: #fff;
+}
