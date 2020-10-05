@@ -3,3 +3,39 @@
     width: 100%;
     margin: auto;
 }
+
+.starship-details__container {
+    width: 100%;
+}
+
+.starship-details__image {
+    margin-bottom: 20px;
+}
+
+
+.starship-details__block-details {
+    margin-bottom: 20px;
+}
+
+.starship-details__block-details__label {
+    font-family: "Basis Grotesque Pro Bold";
+}
+
+@media (min-width: 768px) { 
+    .starship-details__container {
+        display: flex;    
+    }
+    
+    .starship-details__image {
+        width: 60%;
+    }
+    
+    
+    .starship-details__block-details {
+        width: 40%;
+    }
+
+    .starship-details__block-details__button {
+        margin-top: 20px;
+    }
+}

@@ -1,34 +1,38 @@
 <h2>{{ starship?.name}}</h2>
 
-<div class="ships">
-    <div>Modelo: {{ starship?.model }}</div>
-    <div>Fabricante: {{ starship?.manufacturer }}</div>
-    <div>Coste: {{ starship?.cost_in_credits }} créditos</div>
-    <div>Longitud: {{ starship?.length }} m</div>
-    <div>Máxima velocidad atmosférica: {{ starship?.max_atmosphering_speed }} m/s</div>
-    <div>Tripulación: {{ starship?.crew }}</div>
-    <div>Pasajeros: {{ starship?.passengers }}</div>
-    <div>Capacidad de carga: {{ starship?.cargo_capacity }} Kg</div>
-    <div>Duración de los consumibles: {{ starship?.consumables }}</div>
-    <div>Calificación del hiperimpulsor: {{ starship?.hyperdrive_rating }}</div>
-    <div>MGLT: {{ starship?.MGLT }}</div>
-    <div>Tipo de nave espacial: {{ starship?.starship_class }}</div>
-    <div *ngIf="starship?.pilots.length > 0">Pilotos:
-        <ul>
-            <li *ngFor="let pilot of starship.pilots">{{ (pilot | pilot:'name') | async }}</li>
-        </ul>
+<div class="starship-details__container">
+    <div class="starship-details__image"><img [src]="starshipImgUrl"></div>
+    
+    <div class="starship-details__block-details">
+        <div><span class="starship-details__block-details__label">Modelo:</span> {{ starship?.model }}</div>
+        <div><span class="starship-details__block-details__label">Fabricante:</span> {{ starship?.manufacturer }}</div>
+        <div><span class="starship-details__block-details__label">Coste:</span> {{ starship?.cost_in_credits }} créditos</div>
+        <div><span class="starship-details__block-details__label">Longitud:</span> {{ starship?.length }} m</div>
+        <div><span class="starship-details__block-details__label">Máxima velocidad atmosférica:</span> {{ starship?.max_atmosphering_speed }} m/s</div>
+        <div><span class="starship-details__block-details__label">Tripulación:</span> {{ starship?.crew }}</div>
+        <div><span class="starship-details__block-details__label">Pasajeros:</span> {{ starship?.passengers }}</div>
+        <div><span class="starship-details__block-details__label">Capacidad de carga:</span> {{ starship?.cargo_capacity }} Kg</div>
+        <div><span class="starship-details__block-details__label">Duración de los consumibles:</span> {{ starship?.consumables }}</div>
+        <div><span class="starship-details__block-details__label">Calificación del hiperimpulsor:</span> {{ starship?.hyperdrive_rating }}</div>
+        <div><span class="starship-details__block-details__label">MGLT:</span> {{ starship?.MGLT }}</div>
+        <div><span class="starship-details__block-details__label">Tipo de nave espacial:</span> {{ starship?.starship_class }}</div>
+        <div *ngIf="starship?.pilots.length > 0"><span class="starship-details__block-details__label">Pilotos:</span>
+            <ul>
+                <li *ngFor="let pilot of starship.pilots">{{ (pilot | pilot:'name') | async }}</li>
+            </ul>
+        </div>
+        <div *ngIf="starship?.films.length > 0"><span class="starship-details__block-details__label">Películas:</span>
+            <ul>
+                <li *ngFor="let film of starship.films">{{ (film | film:'title') | async }}</li>
+            </ul>
+        </div>
+        <div><span class="starship-details__block-details__label">Fecha creación:</span> {{ starship?.created | date:'short' }}</div>
+        <div><span class="starship-details__block-details__label">Fecha edición:</span> {{ starship?.edited | date:'short' }}</div>
+    
+        <button (click)="goToBack()" class="button button--primary starship-details__block-details__button">Volver</button>
     </div>
-    <div *ngIf="starship?.films.length > 0">Películas:
-        <ul>
-            <li *ngFor="let film of starship.films">{{ (film | film:'title') | async }}</li>
-        </ul>
-    </div>
-    <div>Fecha creación: {{ starship?.created | date:'short' }}</div>
-    <div>Fecha edición: {{ starship?.edited | date:'short' }}</div>
-    <div><img [src]="starshipImgUrl"></div>
 </div>
 
-<button (click)="goToBack()" class="button button--primary">Volver</button>
 
 <div class="alert alert-danger" role="alert" *ngIf="error">
     Hi ha hagut un error al fer la petició
