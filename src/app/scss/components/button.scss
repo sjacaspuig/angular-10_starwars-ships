@@ -24,8 +24,15 @@
     border-color: #000;
 }
 
+.button--tertiary {
+    color: #fff;
+    background-color: $color-error;
+    border-color: $color-error;
+}
+
 .button--primary:hover,
-.button--secondary:hover {
+.button--secondary:hover,
+.button--tertiary:hover {
     opacity: 0.5;
     text-decoration: none;
     color: #fff;
