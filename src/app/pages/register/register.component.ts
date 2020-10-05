@@ -1,7 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { FlashService } from '../../shared/services/flash.service';
 import { UserService } from '../../shared/services/user.service';
 
@@ -10,11 +9,10 @@ import { UserService } from '../../shared/services/user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit, OnDestroy {
+export class RegisterComponent implements OnInit {
 
   public registerForm: FormGroup;
   public dataLoading: boolean;
-  private userSubscription: Subscription = null;
 
   constructor(
     private router: Router,
@@ -32,13 +30,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    this.userSubscription.unsubscribe();
-  }
-
   register(): void {
     this.dataLoading = true;
-    this.userSubscription = this.userService.create(this.registerForm.value)
+    this.userService.create(this.registerForm.value)
       .subscribe( (response: {success: string, message: string}) => {
         if (response.success) {
           this.flashService.success('Registration successful', true);
