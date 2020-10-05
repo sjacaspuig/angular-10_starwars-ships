@@ -22,6 +22,12 @@ export class AuthenticationService {
     private cookieService: CookieService
   ) { }
 
+  /**
+   * Login service
+   * @param username 
+   * @param password 
+   * @param callback 
+   */
   public login(username, password, callback): void {
 
     /* Dummy authentication for testing, uses $timeout to simulate api call
@@ -48,6 +54,11 @@ export class AuthenticationService {
     // ).subscribe(response => callback(response));
   }
 
+  /**
+   * Set credentials in coockies
+   * @param username 
+   * @param password 
+   */
   public setCredentials(username, password): void {
     const authdata = this.base64encode(username + ':' + password);
 
@@ -71,6 +82,9 @@ export class AuthenticationService {
     this.cookieService.putObject('globals', globals, { expires: cookieExp });
   }
 
+  /**
+   * Clear all credentials
+   */
   public clearCredentials(): void {
       this.globalsService.setCurrentUser(null);
       this.cookieService.remove('globals');
@@ -81,6 +95,10 @@ export class AuthenticationService {
       this.headers.append('Authorization', 'Basic ');
   }
 
+  /**
+   * Encode base 64
+   * @param input 
+   */
   private base64encode(input): any {
     let output: any;
     let chr1: any;
@@ -120,6 +138,10 @@ export class AuthenticationService {
     return output;
 }
 
+/**
+ * Decode base 64
+ * @param input 
+ */
 private base64decode(input): any {
     let output: any;
     let chr1: any;
