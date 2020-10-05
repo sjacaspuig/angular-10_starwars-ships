@@ -1,5 +1,10 @@
-<ul>
-    <li *ngFor="let menuItem of menuItems">
-        <a [routerLink]="'/' + menuItem">{{ menuItem | uppercase }}</a>
+<ul class="menu__options-container">
+    <li class="menu__option" *ngFor="let menuItem of menuItems">
+        <a [routerLink]="'/' + menuItem.name"
+        class="menu__option-label"
+        [ngClass]="{'menu__option-label--isActive': menuItem.active}"
+        (click)="isActive(menuItem)">
+            {{ menuItem.name | uppercase }}
+        </a>
     </li>
 </ul>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Menu } from 'src/app/shared/interfaces/menu.interface';
 
 @Component({
   selector: 'menu',
@@ -7,11 +8,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  @Input() menuItems: [];
+  @Input() menuItems: Menu[];
 
   constructor() {}
 
   ngOnInit(): void {
+  }
+
+  public isActive(item: Menu) {
+    this.menuItems = this.menuItems.map((item: Menu) => {
+      item.active = false;
+      return item;
+    })
+
+    item.active = true;
   }
 
 }

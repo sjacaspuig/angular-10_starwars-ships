@@ -28,6 +28,15 @@
     }
 }
 
+.form__input--error {
+    border-bottom: 1px solid #FA3B2C;
+}
+
+.form__input--label-error {
+    color: #FA3B2C;
+    font-size: 11px;
+}
+
 .form__actions-container {
     * {
         margin-bottom: 20px;
@@ -35,5 +44,7 @@
 }
 
 .form__loader {
-    height: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
