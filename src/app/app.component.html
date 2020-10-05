@@ -1,7 +1,8 @@
-<div class="container">
-  <div class="col-sm-12">
-    <menu *ngIf="hasCurrentUser" [menuItems]="menuItems"></menu>
-    <flash></flash>
-    <router-outlet></router-outlet>
-  </div>
+<header class="header">
+  <h1 class="header__title">MD - StarWars</h1>
+  <menu *ngIf="hasCurrentUser" [menuItems]="menuItems"></menu>
+</header>
+<div class="page">
+  <flash></flash>
+  <router-outlet></router-outlet>
 </div>

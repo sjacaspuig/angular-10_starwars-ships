@@ -11,20 +11,20 @@
     border: none;
 }
 
-.button-primary {
+.button--primary {
     color: #fff;
     background-color: #b99d6b;
     border-color: #b99d6b;
 }
 
-.button-secondary {
+.button--secondary {
     color: #fff;
     background-color: #000;
     border-color: #000;
 }
 
-.button-primary:hover,
-.button-secondary:hover {
+.button--primary:hover,
+.button--secondary:hover {
     opacity: 0.5;
     text-decoration: none;
     color: #fff;

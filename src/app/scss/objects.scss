@@ -1,1 +1,8 @@
 // Classes to skeleton of pages
+
+.page {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

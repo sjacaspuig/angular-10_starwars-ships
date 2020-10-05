@@ -11,7 +11,7 @@ import { GlobalsService } from './shared/services/globals.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  hasCurrentUser = false;
+  hasCurrentUser: boolean = false;
   currentUserSubscription: Subscription = null;
   menuItems = MENU_LIST;
 
