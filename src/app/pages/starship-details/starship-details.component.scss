@@ -21,21 +21,25 @@
     font-family: "Basis Grotesque Pro Bold";
 }
 
+.starship-details__block-details__button {
+    margin-top: 20px;
+}
+
 @media (min-width: 768px) { 
     .starship-details__container {
-        display: flex;    
+        display: flex; 
+        width: 100%;   
     }
     
     .starship-details__image {
         width: 60%;
-    }
-    
+        img {
+            max-width: 100%;
+        }
+    }    
     
     .starship-details__block-details {
         width: 40%;
-    }
-
-    .starship-details__block-details__button {
-        margin-top: 20px;
+        padding-left: 15px;
     }
 }

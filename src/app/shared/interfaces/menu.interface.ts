@@ -1,4 +1,4 @@
 export interface Menu {
-    name: string,
-    active: boolean,
+    name: string;
+    active: boolean;
 }

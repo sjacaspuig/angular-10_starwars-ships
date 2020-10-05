@@ -15,11 +15,11 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public isActive(item: Menu) {
+  public isActive(item: Menu): void {
     this.menuItems = this.menuItems.map((item: Menu) => {
       item.active = false;
       return item;
-    })
+    });
 
     item.active = true;
   }

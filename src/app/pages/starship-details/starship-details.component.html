@@ -1,7 +1,9 @@
 <h2>{{ starship?.name}}</h2>
 
 <div class="starship-details__container">
-    <div class="starship-details__image"><img [src]="starshipImgUrl"></div>
+    <div class="starship-details__image">
+        <img [src]="starshipImgUrl">
+    </div>
     
     <div class="starship-details__block-details">
         <div><span class="starship-details__block-details__label">Modelo:</span> {{ starship?.model }}</div>
