@@ -1,37 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@font-face {
-    font-family: 'Basis Grotesque Pro';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Basis Grotesque Pro'), url('./assets/fonts/BasisGrotesquePro-Regular.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Basis Grotesque Pro Bold';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Basis Grotesque Pro Bold'), url('./assets/fonts/BasisGrotesquePro-Bold.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Basis Grotesque Pro Light';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Basis Grotesque Pro Light'), url('./assets/fonts/BasisGrotesquePro-Light.woff') format('woff');
-}
-
-body {
-    font-family: 'Basis Grotesque Pro';
-    font-size: 20px;
-}
-
-a {
-    cursor: pointer;
-}
-
 .ship .panel-body img {
     max-width: 100%;
     object-fit: cover;
@@ -54,4 +22,9 @@ a {
     }
 }
 
-@import './app/scss/button.scss';
+@import './app/scss/settings.scss';
+@import './app/scss/tools.scss';
+@import './app/scss/generic.scss';
+@import './app/scss/elements.scss';
+@import './app/scss/objects.scss';
+@import './app/scss/components/*';
